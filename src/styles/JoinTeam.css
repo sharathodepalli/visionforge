@@ -1,0 +1,325 @@
+/* JoinTeam.css */
+
+.join-team-page {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.hero-content {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.hero-headline {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero-subheadline {
+  font-size: 1.5rem;
+  margin: 20px 0;
+}
+
+.cta-button {
+  background-color: #28a745;
+  color: #ffffff;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.25rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+/* Why Join Us Section */
+.why-join-us {
+  padding: 60px;
+  background-color: #ffffff;
+  text-align: center;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.why-join-us h2 {
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.two-column-layout {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.benefits-list {
+  max-width: 500px;
+}
+
+.benefit {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.benefit img {
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+}
+
+.benefit p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.illustration {
+  max-width: 500px;
+}
+
+.illustration img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Open Roles Section */
+.open-roles {
+  padding: 60px;
+  background-color: #f7f7f7;
+  text-align: center;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.open-roles h2 {
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.roles-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.role-card {
+  background: #ffffff;
+  padding: 30px;
+  margin: 20px;
+  width: 300px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.role-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.role-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.role-card p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.apply-button {
+  background-color: #ff6600;
+  color: #ffffff;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.apply-button:hover {
+  background-color: #e65c00;
+  transform: scale(1.05);
+}
+
+/* How We Work Section */
+.how-we-work {
+  padding: 60px;
+  background-color: #ffffff;
+  text-align: center;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.how-we-work h2 {
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.workflow-steps {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.workflow-step {
+  max-width: 250px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.workflow-step img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 15px;
+}
+
+.workflow-step p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Application Form Section */
+.application-form {
+  padding: 60px;
+  background-color: #f7f7f7;
+  text-align: center;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.application-form h2 {
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.join-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.join-form label {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #333;
+  text-align: left;
+}
+
+.join-form input, .join-form select, .join-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.submit-button {
+  background-color: #28a745;
+  color: #ffffff;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.25rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+.form-note {
+  font-size: 1rem;
+  color: #777;
+  margin-top: 20px;
+}
+
+/* FAQ Section */
+.faq-section {
+  padding: 60px;
+  background-color: #ffffff;
+  text-align: center;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.faq-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.faq-item {
+  max-width: 800px;
+  margin: 20px auto;
+  text-align: left;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.faq-item:hover {
+  transform: translateY(-5px);
+}
+
+.faq-item h3 {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.faq-item p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
