@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/visionforge/static/css/main.405f0a6b.css",
-    "main.js": "/visionforge/static/js/main.57d95ccd.js",
+    "main.css": "/visionforge/static/css/main.f14835fb.css",
+    "main.js": "/visionforge/static/js/main.2f54ef84.js",
     "static/media/hero-background.jpg": "/visionforge/static/media/hero-background.2c9a5c82e1607aa81d19.jpg",
     "index.html": "/visionforge/index.html",
-    "main.405f0a6b.css.map": "/visionforge/static/css/main.405f0a6b.css.map",
-    "main.57d95ccd.js.map": "/visionforge/static/js/main.57d95ccd.js.map"
+    "main.f14835fb.css.map": "/visionforge/static/css/main.f14835fb.css.map",
+    "main.2f54ef84.js.map": "/visionforge/static/js/main.2f54ef84.js.map"
   },
   "entrypoints": [
-    "static/css/main.405f0a6b.css",
-    "static/js/main.57d95ccd.js"
+    "static/css/main.f14835fb.css",
+    "static/js/main.2f54ef84.js"
   ]
 }
