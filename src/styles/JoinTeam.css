@@ -274,6 +274,30 @@
   margin-top: 20px;
 }
 
+.error-message {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+.success-message {
+  color: green;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+.submit-button:disabled {
+  background-color: #ccc; /* Greyed-out button */
+  cursor: not-allowed;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: #00A8E8; /* Highlight border color */
+  box-shadow: 0 0 5px rgba(0, 168, 232, 0.5);
+  outline: none;
+}
+
+
+
 /* FAQ Section */
 .faq-section {
   padding: 60px;

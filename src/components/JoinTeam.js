@@ -1,124 +1,112 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { HashLink } from 'react-router-hash-link';
+import emailjs from '@emailjs/browser';
 import '../styles/JoinTeam.css';
-import Navbar from './Navbar';
-import Footer from './Footer';
+
 
 const JoinTeam = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    role: '',
+    skills: '',
+    portfolio: '',
+    motivation: '',
+    availability: '',
+  });
+
+  const [message, setMessage] = useState('');
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  
+    emailjs
+      .send(
+        'service_b4ybjod', // Replace with your EmailJS service ID
+        'template_wmhm6n2', // Replace with your EmailJS template ID
+        formData,
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY // Use the environment variable for the public key
+      )
+      .then((response) => {
+        setMessage('Application submitted successfully!');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          role: '',
+          skills: '',
+          portfolio: '',
+          motivation: '',
+          availability: '',
+        });
+      })
+      .catch((error) => {
+        console.error('Error sending email:', error);
+        setMessage('Failed to submit the application. Please try again.');
+      });
+  };
+  
+
   return (
     <div className="join-team-page">
-
       {/* Hero Section */}
       <section className="hero" style={{ backgroundImage: 'url(/images/join-team-hero.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="hero-content">
           <h1 className="hero-headline">Be Part of an Innovative Team at VisionForge</h1>
           <p className="hero-subheadline">Join us and work on projects that matter, grow your skills, and build the future of technology.</p>
-          <button className="cta-button">Apply Now</button>
-        </div>
-      </section>
-
-      {/* Why Join Us Section */}
-      <section className="why-join-us">
-        <div className="content-wrapper">
-          <h2>Why Join VisionForge?</h2>
-          <div className="two-column-layout">
-            <div className="benefits-list">
-              <div className="benefit">
-                <img src="/icons/growth-icon.png" alt="Growth Icon" />
-                <p><strong>Hands-on Experience:</strong> Work on real-world projects that have a real impact.</p>
-              </div>
-              <div className="benefit">
-                <img src="/icons/teamwork-icon.png" alt="Teamwork Icon" />
-                <p><strong>Collaborate with Experts:</strong> Be part of a community with experienced mentors.</p>
-              </div>
-              <div className="benefit">
-                <img src="/icons/career-icon.png" alt="Career Icon" />
-                <p><strong>Career Growth Opportunities:</strong> Build your portfolio and grow with us.</p>
-              </div>
-            </div>
-            <div className="illustration">
-              <img src="/images/community-illustration.png" alt="Community Illustration" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Open Roles Section */}
-      <section className="open-roles">
-        <div className="content-wrapper">
-          <h2>Current Opportunities</h2>
-          <div className="roles-list">
-            <div className="role-card">
-              <h3>Front-End Developer</h3>
-              <p>Looking for skilled developers with experience in React.js to help build an intuitive front-end for our platform.</p>
-              <ul>
-                <li>JavaScript, React, HTML, CSS</li>
-                <li>Experience in responsive design</li>
-              </ul>
-              <button className="apply-button">Apply for this Role</button>
-            </div>
-            <div className="role-card">
-              <h3>Back-End Developer</h3>
-              <p>Seeking experienced Node.js developers to help build scalable back-end services.</p>
-              <ul>
-                <li>JavaScript, Node.js, Express</li>
-                <li>Experience with databases like MongoDB or PostgreSQL</li>
-              </ul>
-              <button className="apply-button">Apply for this Role</button>
-            </div>
-            <div className="role-card">
-              <h3>UI/UX Designer</h3>
-              <p>Creative designers needed to help craft user-friendly interfaces and experiences.</p>
-              <ul>
-                <li>Figma, Sketch, Adobe XD</li>
-                <li>Experience in user research and prototyping</li>
-              </ul>
-              <button className="apply-button">Apply for this Role</button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How We Work Section */}
-      <section className="how-we-work">
-        <div className="content-wrapper">
-          <h2>How We Work</h2>
-          <div className="workflow-steps">
-            <div className="workflow-step">
-              <img src="/icons/application-icon.png" alt="Application Icon" />
-              <p><strong>Application:</strong> Submit your application to join the VisionForge team.</p>
-            </div>
-            <div className="workflow-step">
-              <img src="/icons/interview-icon.png" alt="Interview Icon" />
-              <p><strong>Initial Interview:</strong> Our team will get in touch to learn more about you.</p>
-            </div>
-            <div className="workflow-step">
-              <img src="/icons/project-icon.png" alt="Project Icon" />
-              <p><strong>Project Assignment:</strong> Start collaborating on exciting projects with a team.</p>
-            </div>
-            <div className="workflow-step">
-              <img src="/icons/growth-icon.png" alt="Growth Icon" />
-              <p><strong>Grow and Contribute:</strong> Develop your skills and contribute to building real solutions.</p>
-            </div>
-          </div>
+          <HashLink smooth to="/join-team#application-form">
+            <button className="cta-button">Apply Now</button>
+          </HashLink>
         </div>
       </section>
 
       {/* Application Form Section */}
-      <section className="application-form">
+      <section id="application-form" className="application-form">
         <div className="content-wrapper">
           <h2>Apply to Join VisionForge</h2>
-          <form className="join-form">
+          <form className="join-form" onSubmit={handleSubmit}>
             <label htmlFor="name">Name</label>
-            <input type="text" id="name" name="name" required />
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              placeholder="Your full name"
+            />
 
             <label htmlFor="email">Email Address</label>
-            <input type="email" id="email" name="email" required />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              placeholder="you@example.com"
+            />
 
             <label htmlFor="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" required />
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+              placeholder="+1 123 456 7890"
+            />
 
             <label htmlFor="role">Role/Area of Interest</label>
-            <select id="role" name="role">
+            <select id="role" name="role" value={formData.role} onChange={handleChange} required>
+              <option value="" disabled>Select your area of interest</option>
               <option value="frontend">Front-End Developer</option>
               <option value="backend">Back-End Developer</option>
               <option value="design">UI/UX Designer</option>
@@ -126,16 +114,40 @@ const JoinTeam = () => {
             </select>
 
             <label htmlFor="skills">Skills and Experience</label>
-            <textarea id="skills" name="skills" rows="4" required></textarea>
+            <textarea
+              id="skills"
+              name="skills"
+              rows="4"
+              value={formData.skills}
+              onChange={handleChange}
+              required
+              placeholder="Briefly describe your skillset and experience"
+            ></textarea>
 
             <label htmlFor="portfolio">Portfolio/GitHub/LinkedIn</label>
-            <input type="text" id="portfolio" name="portfolio" />
+            <input
+              type="url"
+              id="portfolio"
+              name="portfolio"
+              value={formData.portfolio}
+              onChange={handleChange}
+              placeholder="https://yourportfolio.com"
+            />
 
             <label htmlFor="motivation">Motivation</label>
-            <textarea id="motivation" name="motivation" rows="4" required></textarea>
+            <textarea
+              id="motivation"
+              name="motivation"
+              rows="4"
+              value={formData.motivation}
+              onChange={handleChange}
+              required
+              placeholder="Why do you want to join VisionForge?"
+            ></textarea>
 
             <label htmlFor="availability">Availability</label>
-            <select id="availability" name="availability">
+            <select id="availability" name="availability" value={formData.availability} onChange={handleChange} required>
+              <option value="" disabled>Select your availability</option>
               <option value="fulltime">Full-Time</option>
               <option value="parttime">Part-Time</option>
               <option value="contribution">Contribution Basis</option>
@@ -143,30 +155,9 @@ const JoinTeam = () => {
 
             <button type="submit" className="submit-button">Submit Application</button>
           </form>
-          <p className="form-note">We’ll get back to you within 1-2 weeks. Thanks for applying!</p>
+          {message && <p className="form-note">{message}</p>}
         </div>
       </section>
-
-      {/* FAQ Section (Optional) */}
-      <section className="faq-section">
-        <div className="content-wrapper">
-          <h2>Frequently Asked Questions</h2>
-          <div className="faq-item">
-            <h3>What kind of projects will I be working on?</h3>
-            <p>You will be working on a variety of projects that involve cutting-edge technologies, focusing on impactful real-world solutions.</p>
-          </div>
-          <div className="faq-item">
-            <h3>Is this a full-time commitment?</h3>
-            <p>We have opportunities for both full-time and part-time contributors. You can choose the availability that suits you best.</p>
-          </div>
-          <div className="faq-item">
-            <h3>What experience level are you looking for?</h3>
-            <p>We welcome developers and designers of all experience levels who are eager to learn and contribute.</p>
-          </div>
-        </div>
-      </section>
-
-
     </div>
   );
 };

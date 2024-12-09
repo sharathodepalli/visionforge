@@ -1,16 +1,32 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import '../styles/Homepage.css';
 
+
+
 const Homepage = () => {
+  const navigate = useNavigate();
+
+  const handleJoinUsClick = () => {
+    // Navigate to the JoinTeam page with a fragment identifier
+    navigate('/join-team#application-form');
+  };
+
+
   return (
     <div className="homepage-container">
       <div className="homepage">
         {/* Hero Section */}
-        <section className="hero" style={{ backgroundImage: 'url(/images/hero-background.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <section className="hero" 
+          style={{ backgroundImage: `url(../images/background.jpg)`,
+          backgroundSize: 'cover', 
+          backgroundPosition: 'center' }}>
+
           <div className="hero-content">
             <h1 className="hero-headline">Forge the Future with VisionForge</h1>
             <p className="hero-subheadline">Join a team of passionate developers creating cutting-edge solutions to reshape industries.</p>
-            <button className="cta-button">Join Us Today</button>
+            
           </div>
         </section>
 
@@ -95,7 +111,11 @@ const Homepage = () => {
               <li>Enjoy the freedom to innovate, grow, and shape the future.</li>
               <li>Be part of a community that is supportive, motivated, and values continuous learning.</li>
             </ul>
-            <button className="join-button">Join Us Now</button>
+            {/* <HashLink smooth to="/join-team#application-form">
+              <button className="cta-button">
+                Join Us Today
+              </button>
+            </HashLink> */}
           </div>
         </section>
 
@@ -104,7 +124,12 @@ const Homepage = () => {
           <div className="content-wrapper">
             <h2>Ready to Start Your Journey?</h2>
             <p>Become part of a vibrant community of innovators and make a difference. Whether you're looking to learn, grow, or lead, VisionForge has a place for you.</p>
-            <button className="cta-button">Get Started Today</button>
+            
+            <HashLink smooth to="/join-team#application-form">
+              <button className="cta-button">
+              Get Started Today
+              </button>
+            </HashLink>
           </div>
         </section>
       </div>

@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import '../styles/Projects.css';
-import Navbar from './Navbar';
-import Footer from './Footer';
 import ProjectDetailModal from './ProjectDetailModal';
 
 const Projects = () => {

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
 import '../styles/Navbar.css';
 
 const Navbar = () => {
@@ -27,6 +28,7 @@ const Navbar = () => {
         </ul>
         <div className="cta-button">
           <Link to="/join-team" onClick={() => setIsMobileMenuOpen(false)}>Join Us Now</Link>
+          
         </div>
       </div>
     </nav>
